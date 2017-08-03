@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Compute the length of the string.
  * 
@@ -35,7 +32,7 @@ public final class StringLength extends LongAttribute {
 		return "StringLength("+argument.getDescription()+")";
 	}
 	
-	public long evaluate(final ContextTreeNode node) {
+	public long evaluate(final Object node) {
 		return argument.evaluate(node).length();
 	}
 	

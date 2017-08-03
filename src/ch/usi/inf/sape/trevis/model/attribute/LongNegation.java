@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Negate (-) the value of a long attribute.
  * 
@@ -39,7 +36,7 @@ public final class LongNegation extends LongAttribute {
 		this.description = description;
 	}
 
-	public long evaluate(final ContextTreeNode node) {
+	public long evaluate(final Object node) {
 		return -argument.evaluate(node);
 	}
 	

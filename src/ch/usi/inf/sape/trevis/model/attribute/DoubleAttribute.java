@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A NodeAttribute that returns a double value.
  * 
@@ -24,10 +21,10 @@ public abstract class DoubleAttribute extends NodeAttribute {
 		return Type.DOUBLE;
 	}
 	
-	public Object getValue(final ContextTreeNode node) {
+	public Object getValue(final Object node) {
 		return evaluate(node);
 	}
 	
-	public abstract double evaluate(ContextTreeNode node);
+	public abstract double evaluate(Object node);
 	
 }

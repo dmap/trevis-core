@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A NodeAttribute that returns a boolean value.
  * BooleanAttributes (predicates) are e.g. used to highlight certain nodes
@@ -26,10 +23,10 @@ public abstract class BooleanAttribute extends NodeAttribute {
 		return Type.BOOLEAN;
 	}
 	
-	public Object getValue(final ContextTreeNode node) {
+	public Object getValue(final Object node) {
 		return evaluate(node);
 	}
 	
-	public abstract boolean evaluate(ContextTreeNode node);
+	public abstract boolean evaluate(final Object node);
 	
 }

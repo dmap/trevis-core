@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Negate (-) the value of a double attribute.
  * 
@@ -39,7 +36,7 @@ public final class DoubleNegation extends DoubleAttribute {
 		this.description = description;
 	}
 
-	public double evaluate(final ContextTreeNode node) {
+	public double evaluate(final Object node) {
 		return -argument.evaluate(node);
 	}
 	

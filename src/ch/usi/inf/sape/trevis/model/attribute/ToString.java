@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Convert the value of an attribute of an arbitrary type to a string.
  * 
@@ -35,7 +32,7 @@ public final class ToString extends StringAttribute {
 		return "ToString("+attribute.getDescription()+")";
 	}
 	
-	public String evaluate(final ContextTreeNode node) {
+	public String evaluate(final Object node) {
 		return attribute.getValue(node).toString();
 	}
 	

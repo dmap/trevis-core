@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A conditional operation picking between two double attributes.
  * 
@@ -45,7 +42,7 @@ public final class DoubleConditional extends DoubleAttribute {
 		return "if ("+condition.getDescription()+") {"+ifArg.getDescription()+"} else {"+elseArg.getDescription()+"}";
 	}
 	
-	public double evaluate(final ContextTreeNode node) {
+	public double evaluate(final Object node) {
 		if (condition.evaluate(node)) {
 			return ifArg.evaluate(node);
 		} else {

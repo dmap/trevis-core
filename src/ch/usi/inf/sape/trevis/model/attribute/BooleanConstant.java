@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A constant boolean value.
  * 
@@ -47,7 +44,7 @@ public final class BooleanConstant extends BooleanAttribute {
 		return description;
 	}
 	
-	public boolean evaluate(final ContextTreeNode node) {
+	public boolean evaluate(final Object node) {
 		return value;
 	}
 	

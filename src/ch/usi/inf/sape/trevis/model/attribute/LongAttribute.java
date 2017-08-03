@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A LongAttribute can extract a specific long value from a ContextTreeNode.
  * Subclass this class to extract whatever long values you store in your ContextTreeNode subclasses.
@@ -27,10 +24,10 @@ public abstract class LongAttribute extends NodeAttribute {
 		return Type.LONG;
 	}
 
-	public final Object getValue(final ContextTreeNode node) {
+	public final Object getValue(final Object node) {
 		return evaluate(node);
 	}
 	
-	public abstract long evaluate(ContextTreeNode node);
+	public abstract long evaluate(Object node);
 	
 }

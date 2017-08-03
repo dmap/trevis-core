@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A conditional operation picking between two string attributes.
  * 
@@ -45,7 +42,7 @@ public final class StringConditional extends StringAttribute {
 		return "if ("+condition.getDescription()+") {"+ifArg.getDescription()+"} else {"+elseArg.getDescription()+"}";
 	}
 	
-	public String evaluate(final ContextTreeNode node) {
+	public String evaluate(final Object node) {
 		if (condition.evaluate(node)) {
 			return ifArg.evaluate(node);
 		} else {

@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A binary operation on two boolean attributes.
  * 
@@ -41,7 +38,7 @@ public abstract class BooleanBinaryOperation extends BooleanAttribute {
 		return description;
 	}
 	
-	public final boolean evaluate(final ContextTreeNode node) {
+	public final boolean evaluate(final Object node) {
 		return compute(a.evaluate(node), b.evaluate(node));
 	}
 	

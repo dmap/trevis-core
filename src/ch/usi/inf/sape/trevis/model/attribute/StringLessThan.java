@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Comparison (<) of two string attributes.
  * 
@@ -49,7 +46,7 @@ public final class StringLessThan extends BooleanAttribute {
 		return description;
 	}
 	
-	public final boolean evaluate(final ContextTreeNode node) {
+	public final boolean evaluate(final Object node) {
 		return a.evaluate(node).compareTo(b.evaluate(node))<0;
 	}
 	

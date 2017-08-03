@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Concatenate (+) the values of two or more string attributes.
  * 
@@ -43,7 +40,7 @@ public final class StringConcat extends StringAttribute {
 		return description;
 	}
 	
-	public String evaluate(final ContextTreeNode node) {
+	public String evaluate(final Object node) {
 		final StringBuffer sb = new StringBuffer();
 		for (final StringAttribute argument : arguments) {
 			sb.append(argument.evaluate(node));

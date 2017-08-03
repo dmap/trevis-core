@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A StringAttribute can extract a specific String value from a ContextTreeNode.
  * Subclass this class to extract whatever String values you store in your ContextTreeNode subclasses.
@@ -26,10 +23,10 @@ public abstract class StringAttribute extends NodeAttribute {
 		return Type.STRING;
 	}
 	
-	public Object getValue(final ContextTreeNode node) {
+	public Object getValue(final Object node) {
 		return evaluate(node);
 	}
 	
-	public abstract String evaluate(ContextTreeNode node);
+	public abstract String evaluate(Object node);
 
 }

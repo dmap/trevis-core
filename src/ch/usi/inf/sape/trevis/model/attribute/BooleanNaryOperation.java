@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * An operation on N boolean attributes.
  * 
@@ -39,7 +36,7 @@ public abstract class BooleanNaryOperation extends BooleanAttribute {
 		return description;
 	}
 	
-	public final boolean evaluate(final ContextTreeNode node) {
+	public final boolean evaluate(final Object node) {
 		boolean result = neutralElement();
 		for (final BooleanAttribute argument : arguments) {
 			result = compute(result, argument.evaluate(node));

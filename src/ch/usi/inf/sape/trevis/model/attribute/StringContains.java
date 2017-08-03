@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Comparison (contains) of two string attributes,
  * determining whether the left string contains the right string.
@@ -40,7 +37,7 @@ public final class StringContains extends BooleanAttribute {
 		return attribute.getName()+" contains "+substringAttribute.getName();
 	}
 	
-	public boolean evaluate(final ContextTreeNode node) {
+	public boolean evaluate(final Object node) {
 		return attribute.evaluate(node).contains(substringAttribute.evaluate(node));
 	}
 	

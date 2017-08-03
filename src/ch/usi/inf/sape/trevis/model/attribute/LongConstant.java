@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A constant long value.
  * 
@@ -47,7 +44,7 @@ public final class LongConstant extends LongAttribute {
 		return description;
 	}
 	
-	public long evaluate(final ContextTreeNode node) {
+	public long evaluate(final Object node) {
 		return value;
 	}
 	

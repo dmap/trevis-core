@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Compute the not (!) of a boolean attributes.
  * 
@@ -39,7 +36,7 @@ public final class BooleanNot extends BooleanAttribute {
 		this.description = description;
 	}
 
-	public boolean evaluate(final ContextTreeNode node) {
+	public boolean evaluate(final Object node) {
 		return !argument.evaluate(node);
 	}
 	

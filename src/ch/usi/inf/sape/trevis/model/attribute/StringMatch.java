@@ -13,8 +13,6 @@ package ch.usi.inf.sape.trevis.model.attribute;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
 
 /**
  * Comparison (=~) of two string attributes,
@@ -53,7 +51,7 @@ public final class StringMatch extends BooleanAttribute {
 		return description;
 	}
 	
-	public final boolean evaluate(final ContextTreeNode node) {
+	public final boolean evaluate(final Object node) {
 		final String text = left.evaluate(node);
 		final String patternString = right.evaluate(node);
 		final Pattern pattern = Pattern.compile(patternString);

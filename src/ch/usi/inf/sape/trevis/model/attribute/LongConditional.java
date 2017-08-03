@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A conditional operation picking between two long attributes.
  * 
@@ -45,7 +42,7 @@ public final class LongConditional extends LongAttribute {
 		return "if ("+condition.getDescription()+") {"+ifArg.getDescription()+"} else {"+elseArg.getDescription()+"}";
 	}
 	
-	public long evaluate(final ContextTreeNode node) {
+	public long evaluate(final Object node) {
 		if (condition.evaluate(node)) {
 			return ifArg.evaluate(node);
 		} else {

@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A constant string value.
  * 
@@ -47,7 +44,7 @@ public final class StringConstant extends StringAttribute {
 		return description;
 	}
 	
-	public String evaluate(final ContextTreeNode node) {
+	public String evaluate(final Object node) {
 		return value;
 	}
 	

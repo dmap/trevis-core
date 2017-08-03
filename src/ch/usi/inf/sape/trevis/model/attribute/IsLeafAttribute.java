@@ -10,8 +10,7 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
+import ch.usi.inf.sape.trevis.model.ContextTree;
 
 /**
  * Determine whether the given node is a leaf.
@@ -19,17 +18,23 @@ import ch.usi.inf.sape.trevis.model.ContextTreeNode;
  * @author Matthias.Hauswirth@usi.ch
  */
 public final class IsLeafAttribute extends BooleanAttribute {
-	
-	public String getName() {
-		return "IsLeaf";
-	}
-	
-	public String getDescription() {
-		return "Is the node a leaf node?";
-	}
-	
-	public boolean evaluate(final ContextTreeNode node) {
-		return node.getChildCount()==0;
-	}
-	
+
+    private final ContextTree tree;
+
+    public IsLeafAttribute(final ContextTree tree) {
+        this.tree = tree;
+    }
+
+    public String getName() {
+        return "IsLeaf";
+    }
+
+    public String getDescription() {
+        return "Is the node a leaf node?";
+    }
+
+    public boolean evaluate(final Object node) {
+        return this.tree.getChildCount(node) == 0;
+    }
+
 }

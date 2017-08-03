@@ -10,7 +10,7 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
+import ch.usi.inf.sape.trevis.model.ContextTree;
 
 
 /**
@@ -21,9 +21,13 @@ import ch.usi.inf.sape.trevis.model.ContextTreeNode;
  * 
  * @author Matthias.Hauswirth@usi.ch
  */
-public final class HeightAttribute extends LongAttribute {
+public final class HeightAttribute extends ContextTreeLongAttribute {
 
-	public String getName() {
+	public HeightAttribute(ContextTree tree) {
+        super(tree);
+    }
+
+    public String getName() {
 		return "Height";
 	}
 	
@@ -31,10 +35,10 @@ public final class HeightAttribute extends LongAttribute {
 		return "Height of node (length of longest downward path to a leaf)";
 	}
 	
-	public long evaluate(final ContextTreeNode node) {
+	public long evaluate(final ContextTree tree, final Object node) {
 		long maxChildHeight = 0;
-		for (final ContextTreeNode child : node) {
-			maxChildHeight = Math.max(maxChildHeight, evaluate(child));
+		for (final Object child : tree.iterable(node)) {
+			maxChildHeight = Math.max(maxChildHeight, evaluate(tree, child));
 		}
 		return 1+maxChildHeight;
 	}

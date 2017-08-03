@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Comparison (prefix) of two string attributes,
  * determining whether the left string starts with the right string.
@@ -52,7 +49,7 @@ public final class StringPrefix extends BooleanAttribute {
 		return attribute.getName()+" starts with "+prefixAttribute.getName();
 	}
 	
-	public boolean evaluate(final ContextTreeNode node) {
+	public boolean evaluate(final Object node) {
 		return attribute.evaluate(node).startsWith(prefixAttribute.evaluate(node));
 	}
 	

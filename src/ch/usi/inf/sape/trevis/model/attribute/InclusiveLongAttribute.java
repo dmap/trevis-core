@@ -10,38 +10,37 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
+import ch.usi.inf.sape.trevis.model.ContextTree;
 
 /**
- * Given an exclusive (value only for the given node) LongAttribute, 
- * computes the inclusive value (value for the given node and all its descendants).
+ * Given an exclusive (value only for the given node) LongAttribute, computes the inclusive value (value for the given node and all its
+ * descendants).
  * 
  * @author Matthias.Hauswirth@usi.ch
  */
-public final class InclusiveLongAttribute extends LongAttribute {
+public final class InclusiveLongAttribute extends ContextTreeLongAttribute {
 
-	private final LongAttribute exclusiveAttribute;
-	
-	
-	public InclusiveLongAttribute(final LongAttribute exclusiveAttribute) {
-		this.exclusiveAttribute = exclusiveAttribute;
-	}
-	
-	public String getName() {
-		return "Inclusive("+exclusiveAttribute.getName()+")";
-	}
-	
-	public String getDescription() {
-		return "Inclusive("+exclusiveAttribute.getDescription()+")";
-	}
-	
-	public long evaluate(final ContextTreeNode node) {
-		long value = exclusiveAttribute.evaluate(node);
-		for (final ContextTreeNode child : node) {
-			value += evaluate(child);
-		}
-		return value;
-	}
-	
+    private final LongAttribute exclusiveAttribute;
+
+    public InclusiveLongAttribute(final ContextTree tree, final LongAttribute exclusiveAttribute) {
+        super(tree);
+        this.exclusiveAttribute = exclusiveAttribute;
+    }
+
+    public String getName() {
+        return "Inclusive(" + exclusiveAttribute.getName() + ")";
+    }
+
+    public String getDescription() {
+        return "Inclusive(" + exclusiveAttribute.getDescription() + ")";
+    }
+
+    public long evaluate(final ContextTree tree, final Object node) {
+        long value = exclusiveAttribute.evaluate(node);
+        for (final Object child : tree.iterable(node)) {
+            value += evaluate(child);
+        }
+        return value;
+    }
+
 }

@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A binary operation on two long attributes.
  * 
@@ -41,7 +38,7 @@ public abstract class LongBinaryOperation extends LongAttribute {
 		return description;
 	}
 	
-	public final long evaluate(final ContextTreeNode node) {
+	public final long evaluate(final Object node) {
 		return compute(a.evaluate(node), b.evaluate(node));
 	}
 	

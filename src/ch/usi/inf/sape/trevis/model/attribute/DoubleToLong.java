@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Convert the value of a double attribute to a long.
  * 
@@ -39,7 +36,7 @@ public final class DoubleToLong extends LongAttribute {
 		this.description = description;
 	}
 
-	public long evaluate(final ContextTreeNode node) {
+	public long evaluate(final Object node) {
 		return (long)argument.evaluate(node);
 	}
 	

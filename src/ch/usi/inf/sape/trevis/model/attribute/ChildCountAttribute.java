@@ -10,28 +10,30 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
+import ch.usi.inf.sape.trevis.model.ContextTree;
 
 /**
- * This is a general attribute.
- * It does not depend on a specific ContextTreeNode implementation.
- * For any given node, it returns the number of children.
+ * This is a general attribute. It does not depend on a specific ContextTreeNode implementation. For any given node, it returns the number
+ * of children.
  * 
  * @author Matthias.Hauswirth@usi.ch
  */
-public final class ChildCountAttribute extends LongAttribute {
+public final class ChildCountAttribute extends ContextTreeLongAttribute {
 
-	public String getName() {
-		return "Children";
-	}
-	
-	public String getDescription() {
-		return "Number of children";
-	}
-	
-	public long evaluate(final ContextTreeNode node) {
-		return node.getChildCount();
-	}
-	
+    public ChildCountAttribute(final ContextTree tree) {
+        super(tree);
+    }
+
+    public String getName() {
+        return "Children";
+    }
+
+    public String getDescription() {
+        return "Number of children";
+    }
+
+    public long evaluate(final ContextTree tree, final Object node) {
+        return tree.getChildCount(node);
+    }
+
 }

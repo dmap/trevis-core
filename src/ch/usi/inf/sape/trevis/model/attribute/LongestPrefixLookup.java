@@ -13,8 +13,6 @@ package ch.usi.inf.sape.trevis.model.attribute;
 import java.util.HashSet;
 import java.util.Set;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
 
 /**
  * A StringAttribute matching the evaluated argument against the given list of prefixes,
@@ -46,7 +44,7 @@ public final class LongestPrefixLookup extends StringAttribute {
 		}
 	}
 
-	public String evaluate(final ContextTreeNode node) {
+	public String evaluate(final Object node) {
 		final String path = argument.evaluate(node);
 		if (path!=null) {
 			return lookup(path);

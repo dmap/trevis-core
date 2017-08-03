@@ -36,52 +36,52 @@ public final class ContextTreeOperations {
 	 * the corresponding node in A, na, and the corresponding node in B, nb.
 	 */
 	public static ContextTree union(final ContextTree a, final ContextTree b, final ContextTreeFactory factory) {
-		final ContextTreeNode root = factory.unionNodes(a.getRoot(), b.getRoot());
+		final Object root = factory.unionNodes(a.getRoot(), b.getRoot());
 		unionChildren(a.getRoot(), b.getRoot(), root, factory);
 		final ContextTree tree = factory.createTree(root);
 		return tree;
 	}
 	
-	private static void unionChildren(final ContextTreeNode aNode, final ContextTreeNode bNode, final ContextTreeNode outNode, final ContextTreeFactory factory) {
-		final ArrayList<ContextTreeNode> aChildren = factory.getOrderedChildren(aNode);
-		final ArrayList<ContextTreeNode> bChildren = factory.getOrderedChildren(bNode);
-		final Comparator<ContextTreeNode> comparator = factory.getNodeComparator();
+	private static void unionChildren(final Object aNode, final Object bNode, final Object outNode, final ContextTreeFactory factory) {
+		final ArrayList<Object> aChildren = factory.getOrderedChildren(aNode);
+		final ArrayList<Object> bChildren = factory.getOrderedChildren(bNode);
+		final Comparator<Object> comparator = factory.getNodeComparator();
 		int a = 0;
 		int b = 0;
 		while (a<aChildren.size() || b<bChildren.size()) {
 			if (a<aChildren.size() && b<bChildren.size()) {
-				final ContextTreeNode aChild = aChildren.get(a);
-				final ContextTreeNode bChild = bChildren.get(b);
+				final Object aChild = aChildren.get(a);
+				final Object bChild = bChildren.get(b);
 				final int result = comparator.compare(aChild, bChild);
 				if (result==0) {
 					// a==b
-					final ContextTreeNode outChild = factory.unionNodes(aChild, bChild); 
+					final Object outChild = factory.unionNodes(aChild, bChild); 
 					factory.connectParentAndChild(outNode, outChild);
 					unionChildren(aChild, bChild, outChild, factory);
 					a++;
 					b++;
 				} else if (result<0) {
 					// a<b
-					final ContextTreeNode outChild = factory.cloneNode(aChild);
+					final Object outChild = factory.cloneNode(aChild);
 					factory.connectParentAndChild(outNode, outChild);
 					cloneChildren(aChild, outChild, factory);
 					a++;
 				} else {
 					// b<a
-					final ContextTreeNode outChild = factory.cloneNode(bChild);
+					final Object outChild = factory.cloneNode(bChild);
 					factory.connectParentAndChild(outNode, outChild);
 					cloneChildren(bChild, outChild, factory);
 					b++;
 				}
 			} else if (a<aChildren.size()) {
-				final ContextTreeNode aChild = aChildren.get(a);
-				final ContextTreeNode outChild = factory.cloneNode(aChild);
+				final Object aChild = aChildren.get(a);
+				final Object outChild = factory.cloneNode(aChild);
 				factory.connectParentAndChild(outNode, outChild);
 				cloneChildren(aChild, outChild, factory);
 				a++;				
 			} else {
-				final ContextTreeNode bChild = bChildren.get(b);
-				final ContextTreeNode outChild = factory.cloneNode(bChild);
+				final Object bChild = bChildren.get(b);
+				final Object outChild = factory.cloneNode(bChild);
 				factory.connectParentAndChild(outNode, outChild);
 				cloneChildren(bChild, outChild, factory);
 				b++;				
@@ -186,7 +186,7 @@ public final class ContextTreeOperations {
 	 * @return A deep clone of the given tree
 	 */
 	public static ContextTree clone(final ContextTree inTree, final ContextTreeFactory factory) {
-		final ContextTreeNode outRoot = clone(inTree.getRoot(), factory);
+		final Object outRoot = clone(inTree.getRoot(), factory);
 		final ContextTree outTree = factory.createTree(outRoot);
 		return outTree;
 	}
@@ -198,15 +198,15 @@ public final class ContextTreeOperations {
 	 * @param factory A ContextTreeFactory for the given inSubtreeRoot
 	 * @return A deep clone of the given subtree
 	 */
-	public static ContextTreeNode clone(final ContextTreeNode inSubtreeRoot, final ContextTreeFactory factory) {
-		final ContextTreeNode outSubtreeRoot = factory.cloneNode(inSubtreeRoot);
+	public static Object clone(final Object inSubtreeRoot, final ContextTreeFactory factory) {
+		final Object outSubtreeRoot = factory.cloneNode(inSubtreeRoot);
 		cloneChildren(inSubtreeRoot, outSubtreeRoot, factory);
 		return outSubtreeRoot;
 	}
 	
-	private static void cloneChildren(final ContextTreeNode inNode, final ContextTreeNode outNode, final ContextTreeFactory factory) {
-		for (final ContextTreeNode inChild : inNode) {
-			final ContextTreeNode outChild = factory.cloneNode(inChild);
+	private static void cloneChildren(final ContextTree tree, final Object inNode, final Object outNode, final ContextTreeFactory factory) {
+		for (final Object inChild : inNode) {
+			final Object outChild = factory.cloneNode(inChild);
 			factory.connectParentAndChild(outNode, outChild);
 			cloneChildren(inChild, outChild, factory);
 		}

@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A binary operation on two double attributes.
  * 
@@ -41,7 +38,7 @@ public abstract class DoubleBinaryOperation extends DoubleAttribute {
 		return description;
 	}
 	
-	public final double evaluate(final ContextTreeNode node) {
+	public final double evaluate(final Object node) {
 		return compute(a.evaluate(node), b.evaluate(node));
 	}
 	

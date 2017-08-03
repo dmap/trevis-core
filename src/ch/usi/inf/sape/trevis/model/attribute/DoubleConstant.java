@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * A constant double value.
  * 
@@ -47,7 +44,7 @@ public final class DoubleConstant extends DoubleAttribute {
 		return description;
 	}
 	
-	public double evaluate(final ContextTreeNode node) {
+	public double evaluate(final Object node) {
 		return value;
 	}
 	

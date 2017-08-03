@@ -10,9 +10,6 @@
  */
 package ch.usi.inf.sape.trevis.model.attribute;
 
-import ch.usi.inf.sape.trevis.model.ContextTreeNode;
-
-
 /**
  * Comparison (prefix) of two string attributes,
  * determining whether the left string ends with the right string.
@@ -40,7 +37,7 @@ public final class StringSuffix extends BooleanAttribute {
 		return attribute.getName()+" ends with "+suffixAttribute.getName();
 	}
 	
-	public boolean evaluate(final ContextTreeNode node) {
+	public boolean evaluate(final Object node) {
 		return attribute.evaluate(node).endsWith(suffixAttribute.evaluate(node));
 	}
 	

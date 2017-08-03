@@ -34,7 +34,7 @@ public interface ContextTreeFactory {
 	 * @param root A ContextTreeNode to be used as the root of the new ContextTree.
 	 * @return A newly created ContextTree.
 	 */
-	public ContextTree createTree(ContextTreeNode root);
+	public ContextTree createTree(Object root);
 	
 	/**
 	 * Create a clone of the given node (including the relevant attributes),
@@ -43,12 +43,12 @@ public interface ContextTreeFactory {
 	 * @param node A ContextTreeNode to be cloned
 	 * @return a new ContextTreeNode, without children (!), representing a clone of node
 	 */
-	public ContextTreeNode cloneNode(ContextTreeNode node);
+	public Object cloneNode(Object node);
 	
 	/**
 	 * Make the two nodes to be parent and child.
 	 */
-	public void connectParentAndChild(ContextTreeNode parent, ContextTreeNode child);
+	public void connectParentAndChild(Object parent, Object child);
 	
 	/**
 	 * Union just the contents of the nodes (e.g. the relevant attributes),
@@ -63,7 +63,7 @@ public interface ContextTreeFactory {
 	 * @param node2
 	 * @return a new ContextTreeNode, without children, representing the union of node1 and node2
 	 */
-	public ContextTreeNode unionNodes(ContextTreeNode node1, ContextTreeNode node2);
+	public Object unionNodes(Object node1, Object node2);
 	
 	/**
 	 * Intersect just the contents of the nodes (e.g. the relevant attributes),
@@ -78,7 +78,7 @@ public interface ContextTreeFactory {
 	 * @param node2
 	 * @return a new ContextTreeNode, without children, representing the intersection of node1 and node2
 	 */
-	public ContextTreeNode intersectNodes(ContextTreeNode node1, ContextTreeNode node2);
+	public Object intersectNodes(Object node1, Object node2);
 	
 	/**
 	 * Add just the contents of the nodes (e.g. the relevant attributes),
@@ -90,7 +90,7 @@ public interface ContextTreeFactory {
 	 * @param node2
 	 * @return a new ContextTreeNode, without children, representing the Math.max(0, node1 - node2).
 	 */
-	public ContextTreeNode addNodes(ContextTreeNode node1, ContextTreeNode node2);
+	public Object addNodes(Object node1, Object node2);
 	
 	/**
 	 * Subtract just the contents of the nodes (e.g. the relevant attributes),
@@ -102,7 +102,7 @@ public interface ContextTreeFactory {
 	 * @param node2
 	 * @return a new ContextTreeNode, without children, representing the Math.max(0, node1 - node2).
 	 */
-	public ContextTreeNode subtractNodes(ContextTreeNode node1, ContextTreeNode node2);
+	public Object subtractNodes(Object node1, Object node2);
 
 	/**
 	 * Return an ordered list of the children of the given node.
@@ -110,13 +110,13 @@ public interface ContextTreeFactory {
 	 * @param aNode
 	 * @return
 	 */
-	public ArrayList<ContextTreeNode> getOrderedChildren(ContextTreeNode aNode);
+	public ArrayList<Object> getOrderedChildren(Object aNode);
 
 	/**
 	 * Return a comparator that produces the same order as used in getOrderedChildren().
 	 * 
 	 * @return
 	 */
-	public Comparator<ContextTreeNode> getNodeComparator();
+	public Comparator<Object> getNodeComparator();
 	
 }

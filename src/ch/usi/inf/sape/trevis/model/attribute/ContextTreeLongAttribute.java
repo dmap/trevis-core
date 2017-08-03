@@ -12,29 +12,18 @@ package ch.usi.inf.sape.trevis.model.attribute;
 
 import ch.usi.inf.sape.trevis.model.ContextTree;
 
-/**
- * Determine whether the given node is the root.
- * 
- * @author Matthias.Hauswirth@usi.ch
- */
-public final class IsRootAttribute extends BooleanAttribute {
-	
+public abstract class ContextTreeLongAttribute extends LongAttribute {
+
     private final ContextTree tree;
 
-    public IsRootAttribute(final ContextTree tree) {
+    public ContextTreeLongAttribute(final ContextTree tree) {
         this.tree = tree;
     }
 
-	public String getName() {
-		return "IsRoot";
-	}
-	
-	public String getDescription() {
-		return "Is the node the root node?";
-	}
-	
-	public boolean evaluate(final Object node) {
-		return tree.getParent(node)==null;
-	}
-	
+    public long evaluate(final Object node) {
+        return evaluate(tree, node);
+    }
+
+    public abstract long evaluate(ContextTree tree, Object node);
+
 }
