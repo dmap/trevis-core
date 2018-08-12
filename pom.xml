@@ -8,6 +8,12 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<url>http://maven.apache.org</url>
+	<scm>
+		<connection>scm:git:https://github.com/dmap/trevis-core</connection>
+		<developerConnection>scm:git:https://github.com/dmap/trevis-core</developerConnection>
+		<url>https://github.com/dmap/trevis-core</url>
+		<tag>HEAD</tag>
+	</scm>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -40,6 +46,18 @@
 						<addMavenDescriptor>false</addMavenDescriptor>
 					</archive>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.2</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.9.4</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 
