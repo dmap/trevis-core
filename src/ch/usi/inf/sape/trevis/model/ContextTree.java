@@ -10,6 +10,8 @@
  */
 package ch.usi.inf.sape.trevis.model;
 
+import ch.usi.inf.sape.trevis.model.attribute.HeightAttribute;
+
 /**
  * A ContextTree is a tree with the following properties:
  * 
@@ -66,4 +68,8 @@ public interface ContextTree<T> {
 
     public abstract boolean isRoot(final T node);
 
+    public default long getHeight(final T node) {
+        return new HeightAttribute(this).evaluate(node);
+    }
+    
 }
