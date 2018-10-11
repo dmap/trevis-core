@@ -3,14 +3,14 @@
 	<groupId>nz.co.maplesden.david</groupId>
 	<artifactId>trevis-core</artifactId>
 	<name>trevis-core</name>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.1</version>
 	<packaging>jar</packaging>
 	<url>http://maven.apache.org</url>
 	<scm>
 		<connection>scm:git:https://github.com/dmap/trevis-core</connection>
 		<developerConnection>scm:git:https://github.com/dmap/trevis-core</developerConnection>
 		<url>https://github.com/dmap/trevis-core</url>
-		<tag>HEAD</tag>
+		<tag>trevis-core-1.1</tag>
 	</scm>
 
 	<properties>
